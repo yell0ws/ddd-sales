@@ -1,0 +1,72 @@
+{
+  "name": "yell0w/ddd-sales",
+  "type": "project",
+  "authors": [
+    {
+      "name": "yell0w",
+      "email": "kontakt@patryksieradzki.pl"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "App\\Tests\\": "tests/"
+    }
+  },
+  "require": {
+    "php": ">=7.1.2",
+    "ext-json": "*",
+    "beberlei/assert": "^3.2",
+    "ramsey/uuid": "^3.8"
+  },
+  "require-dev": {
+    "ext-xdebug": "*",
+    "squizlabs/php_codesniffer": "^3.4",
+    "phpunit/phpunit": "^7.5",
+    "phpstan/phpstan": "^0.11.5",
+    "friendsofphp/php-cs-fixer": "^2.14"
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "scripts": {
+    "dev": [
+      "composer install",
+      "@test"
+    ],
+    "prod": [
+      "composer install --no-interaction --optimize-autoloader --no-dev",
+      "@test"
+    ],
+    "test": [
+      "@test:unit",
+      "@test:phpstan",
+      "@test:cs-dry"
+    ],
+    "test:unit": [
+      "vendor/bin/phpunit --testsuite=unit"
+    ],
+    "test:functional": [
+      "vendor/bin/phpunit --testsuite=functional"
+    ],
+    "test:phpstan": [
+      "vendor/bin/phpstan analyse -l 7 src tests -c phpstan.neon"
+    ],
+    "test:cs-fix": [
+      "PHP_CS_FIXER_FUTURE_MODE=1 vendor/bin/php-cs-fixer fix -v"
+    ],
+    "test:cs-dry": [
+      "PHP_CS_FIXER_FUTURE_MODE=1 vendor/bin/php-cs-fixer fix -v --diff --dry-run"
+    ],
+    "test:coverage": [
+      "rm -rf ./var/coverage",
+      "./vendor/bin/phpunit --testsuite=unit --coverage-html ./var/coverage"
+    ]
+  }
+}
