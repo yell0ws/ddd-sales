@@ -24,7 +24,6 @@
     "ramsey/uuid": "^3.8"
   },
   "require-dev": {
-    "ext-xdebug": "*",
     "squizlabs/php_codesniffer": "^3.4",
     "phpunit/phpunit": "^7.5",
     "phpstan/phpstan": "^0.11.5",
