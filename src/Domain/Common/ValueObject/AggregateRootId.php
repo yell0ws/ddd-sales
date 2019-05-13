@@ -20,7 +20,7 @@ abstract class AggregateRootId
         return $this->toString();
     }
 
-    abstract public static function generate();
+    abstract public static function next();
 
     abstract public static function fromString(string $id);
 
