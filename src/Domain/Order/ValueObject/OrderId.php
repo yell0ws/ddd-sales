@@ -17,7 +17,7 @@ class OrderId extends AggregateRootId
      *
      * @throws Exception
      */
-    public static function generate(): OrderId
+    public static function next(): OrderId
     {
         return new OrderId(
             Uuid::uuid4()
