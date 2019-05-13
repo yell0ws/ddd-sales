@@ -3562,6 +3562,5 @@
         "ext-json": "*"
     },
     "platform-dev": {
-        "ext-xdebug": "*"
     }
 }
