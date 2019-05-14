@@ -13,7 +13,7 @@ class Order
     public function __construct(OrderId $id)
     
         $this->id = $id;
-    }
+    
 
     public function id(): OrderId
     {
