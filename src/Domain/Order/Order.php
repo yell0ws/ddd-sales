@@ -11,10 +11,10 @@ class Order
     private $id;
 
     public function __construct(OrderId $id)
-    
+    {        
         $this->id = $id;
+    }
     
-
     public function id(): OrderId
     {
         return $this->id;
